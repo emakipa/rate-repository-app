@@ -1,19 +1,50 @@
 import React from 'react';
-import { View } from 'react-native';
-import Text from './Text';
+import { View, StyleSheet } from 'react-native';
+import RepositoryItemImage from './RepositoryItemImage';
+import RepositoryItemDescription from './RepositoryItemDescription';
+import RepositoryItemStatistics from './RepositoryItemStatistics';
 
 const RepositoryItem = ({ item }) => {
   
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: 'column',
+      backgroundColor: '#FFFFFF',
+    },
+    container1: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+    },
+    container2: {
+      display: 'flex',
+      paddingTop: 20,
+    },
+    container3: {
+      display: 'flex',
+    },
+  });
+
+  const statistics = [
+    { statisticsItem: 'Stars', count: item.stargazersCount },
+    { statisticsItem: 'Forks', count: item.forksCount },
+    { statisticsItem: 'Reviews', count: item.reviewCount },
+    { statisticsItem: 'Rating', count: item.ratingAverage }
+  ];
+  
   return (
-    <View >
-      <Text fontsize='body'>Full name: {item.fullName}</Text>
-      <Text fontsize='body'>Description: {item.description}</Text>
-      <Text fontsize='body'>Language: {item.language}</Text>
-      <Text fontsize='body'>Forks: {item.forksCount}</Text>
-      <Text fontsize='body'>Stars: {item.stargazersCount}</Text>
-      <Text fontsize='body'>Rating: {item.ratingAverage}</Text>
-      <Text fontsize='body'>Reviews: {item.reviewCount}</Text>
-      <Text fontsize='body'>Owner avatar url: {item.ownerAvatarUrl}</Text>
+    <View style={styles.container}>
+      <View style={styles.container1}>
+        <View>
+          <RepositoryItemImage imageSource={item.ownerAvatarUrl} />
+        </View>
+        <View style={styles.container2}>
+          <RepositoryItemDescription fullName={item.fullName} description={item.description} language={item.language} />
+        </View>
+      </View>
+      <View style={styles.container3}>
+        <RepositoryItemStatistics statistics={statistics} />  
+      </View>
     </View> 
   );
 };

@@ -6,7 +6,6 @@ const RepositoryItemStatistics = ({ statistics }) => {
 
   const styles = StyleSheet.create({
     container: {
-      display: 'flex',
       backgroundColor: 'white',
     },
     item: {

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
+import theme from '../theme';
 
 const RepositoryItemImage = ({ imageSource }) => {
 
   const styles = StyleSheet.create({
     container: {
       display: 'flex',
-      backgroundColor: 'white',
+      backgroundColor: theme.colors.backgroundWhite,
     },
     tinyLogo: {
       width: 50,

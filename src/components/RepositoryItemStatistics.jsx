@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CountItem from './CountItem';
+import theme from '../theme';
 
 const RepositoryItemStatistics = ({ statistics }) => {
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'white',
+      backgroundColor: theme.colors.backgroundWhite,
     },
     item: {
       flexDirection: 'row',

@@ -2,9 +2,12 @@ const theme = {
   colors: {
     textPrimary: '#24292e',
     textSecondary: '#586069',
-    primary: '#0366d6',
-    appBar: '#363640',
     textWhite: '#FFFFFF',
+    primary: '#0366d6',
+    backgroundAppBar: '#363640',
+    backgroundMain: '#e1e4e8',
+    backgroundWhite: '#FFFFFF',
+    borderInput: '#e1e4e8',
   },
   fontSizes: {
     body: 14,

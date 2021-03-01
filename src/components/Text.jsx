@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ color, style, fontSize, fontWeight, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textWhite' && styles.colorTextWhite,

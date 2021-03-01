@@ -8,7 +8,7 @@ const RepositoryItemDescription = ({ fullName, description, language }) => {
   const styles = StyleSheet.create({
     container: {
       display: 'flex',
-      backgroundColor: 'white',
+      backgroundColor: theme.colors.backgroundWhite,
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: 'flex-start',

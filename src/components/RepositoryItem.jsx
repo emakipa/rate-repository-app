@@ -3,13 +3,14 @@ import { View, StyleSheet } from 'react-native';
 import RepositoryItemImage from './RepositoryItemImage';
 import RepositoryItemDescription from './RepositoryItemDescription';
 import RepositoryItemStatistics from './RepositoryItemStatistics';
+import theme from '../theme';
 
 const RepositoryItem = ({ item }) => {
   
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'column',
-      backgroundColor: '#FFFFFF',
+      backgroundColor: theme.colors.backgroundWhite,
     },
     container1: {
       display: 'flex',

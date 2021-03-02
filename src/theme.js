@@ -2,19 +2,23 @@ const theme = {
   colors: {
     textPrimary: '#24292e',
     textSecondary: '#586069',
-    textWhite: '#FFFFFF',
+    textWhite: '#ffffff',
+    textError: '#d73a4a',
     primary: '#0366d6',
     backgroundAppBar: '#363640',
     backgroundMain: '#e1e4e8',
-    backgroundWhite: '#FFFFFF',
+    backgroundWhite: '#ffffff',
     borderInput: '#e1e4e8',
+    borderInputError: '#d73a4a',
   },
   fontSizes: {
     body: 14,
     subheading: 16,
   },
   fonts: {
-    main: 'System',
+    android: 'Roboto',
+    ios: 'Arial',
+    default: 'System',
   },
   fontWeights: {
     normal: '400',

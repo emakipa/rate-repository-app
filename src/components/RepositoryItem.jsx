@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import RepositoryItemImage from './RepositoryItemImage';
+import {
+  StyleSheet,
+  View
+} from 'react-native';
 import RepositoryItemDescription from './RepositoryItemDescription';
+import RepositoryItemImage from './RepositoryItemImage';
 import RepositoryItemStatistics from './RepositoryItemStatistics';
 import theme from '../theme';
 

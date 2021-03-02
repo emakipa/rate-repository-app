@@ -6,7 +6,7 @@ import TextInput from './TextInput';
 
 const styles = StyleSheet.create({
   errorText: {
-    marginTop: 5,
+    marginBottom: 10,
   },
 });
 
@@ -23,7 +23,7 @@ const FormikTextInput = ({ name, ...props }) => {
         error={showError}
         {...props}
       />
-      {showError && <Text style={styles.errorText}>{meta.error}</Text>}
+      {showError && <Text style={styles.errorText} color='textError'>{meta.error}</Text>}
     </>
   );
 };

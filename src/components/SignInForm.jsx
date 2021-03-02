@@ -1,7 +1,11 @@
 import React from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import Text from "./Text";
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native';
 import FormikTextInput from './FormikTextInput';
+import Text from "./Text";
 import theme from '../theme';
 
 const styles = StyleSheet.create({
@@ -13,7 +17,7 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 5,
     backgroundColor: theme.colors.primary,
-    padding: 20,
+    padding: 15,
   },
   buttonText: {
     color: theme.colors.textWhite,

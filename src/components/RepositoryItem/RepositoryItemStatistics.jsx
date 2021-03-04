@@ -4,7 +4,7 @@ import {
   View
 } from 'react-native';
 import CountItem from './CountItem';
-import theme from '../theme';
+import theme from '../../theme';
 
 const RepositoryItemStatistics = ({ statistics }) => {
 

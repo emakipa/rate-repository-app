@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import Text from './Text';
+import Text from '../Text';
 
 const CountItem = ({ statisticsItem, count }) => {
   const countString = count >= 1000 ? `${(count / 1000).toFixed(1)}k` : `${count}`;

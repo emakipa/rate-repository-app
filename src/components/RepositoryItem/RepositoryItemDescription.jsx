@@ -3,8 +3,8 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import Text from './Text';
-import theme from '../theme';
+import Text from '../Text';
+import theme from '../../theme';
 
 const RepositoryItemDescription = ({ fullName, description, language }) => {
 

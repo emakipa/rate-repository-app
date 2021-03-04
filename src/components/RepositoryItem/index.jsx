@@ -6,7 +6,7 @@ import {
 import RepositoryItemDescription from './RepositoryItemDescription';
 import RepositoryItemImage from './RepositoryItemImage';
 import RepositoryItemStatistics from './RepositoryItemStatistics';
-import theme from '../theme';
+import theme from '../../theme';
 
 const RepositoryItem = ({ item }) => {
   

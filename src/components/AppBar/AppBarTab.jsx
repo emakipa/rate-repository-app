@@ -12,10 +12,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTap = ({ title, link }) => {
+const AppBarTap = ({ title, link, onPress }) => {
   return (
     <Link
       to={link}
+      onPress={onPress}
       component={TouchableWithoutFeedback}
       activeOpacity={0.8}
     >

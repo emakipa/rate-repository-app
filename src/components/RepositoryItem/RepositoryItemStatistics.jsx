@@ -23,7 +23,7 @@ const RepositoryItemStatistics = ({ statistics }) => {
     <View style={styles.container}>
       <View  style={styles.item}>
         {statistics.map((s) => (  
-          <CountItem key={s.statisticsItem} statisticsItem={s.statisticsItem} count={s.count} />
+          <CountItem key={s.statisticsItem} statisticsItem={s.statisticsItem} count={s.count} testId={s.testId}/>
         ))}
       </View>
     </View>

@@ -29,9 +29,9 @@ const SignInForm = ({ onSubmit }) => {
   
   return (
     <View style={styles.container}>
-      <FormikTextInput name='username' placeholder='Username'/>
-      <FormikTextInput name='password' placeholder='Password' secureTextEntry/>
-      <TouchableWithoutFeedback onPress={onSubmit}>
+      <FormikTextInput name='username' placeholder='Username' testId='usernameInput'/>
+      <FormikTextInput name='password' placeholder='Password' testId='passwordInput' secureTextEntry/>
+      <TouchableWithoutFeedback onPress={onSubmit} testID="signInButton">
         <View style={styles.button}>
           <Text style={styles.buttonText} fontWeight='bold'>Sign in</Text>
         </View>

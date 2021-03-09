@@ -30,13 +30,13 @@ const RepositoryItemDescription = ({ fullName, description, language }) => {
   return (
     <View style={styles.container}> 
       <View style={styles.separator}>     
-        <Text fontsize='subHeading' fontWeight='bold'>{fullName}</Text>
+        <Text fontsize='subHeading' fontWeight='bold' testID='fullName'>{fullName}</Text>
       </View>
       <View style={styles.separator}>
-        <Text fontsize='subHeading' color='textSecondary'>{description}</Text>
+        <Text fontsize='subHeading' color='textSecondary' testID='description'>{description}</Text>
       </View>
       <View style={styles.separator}>
-        <Text style={styles.language} fontsize='subHeading'>{language}</Text>
+        <Text style={styles.language} fontsize='subHeading' testID='language'>{language}</Text>
       </View>
     </View>
   );

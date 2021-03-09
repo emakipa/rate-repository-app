@@ -5,8 +5,11 @@ import {
 } from 'react-native';
 import Text from '../Text';
 
-const CountItem = ({ statisticsItem, count }) => {
-  const countString = count >= 1000 ? `${(count / 1000).toFixed(1)}k` : `${count}`;
+export const countString = (count) => {
+  return count >= 1000 ? `${(count / 1000).toFixed(1)}k` : `${count}`;
+};
+
+const CountItem = ({ statisticsItem, count, testId }) => {
 
   const styles = StyleSheet.create({
     container: {
@@ -23,7 +26,7 @@ const CountItem = ({ statisticsItem, count }) => {
   return (
     <View style={styles.container}>
       <View style={styles.item}>
-        <Text fontsize='subHeading' fontWeight='bold'>{countString}</Text>
+        <Text fontsize='subHeading' fontWeight='bold' testID={testId}>{countString(count)}</Text>
         <Text fontsize='subHeading' color='textSecondary'>{statisticsItem}</Text>
       </View>
     </View> 

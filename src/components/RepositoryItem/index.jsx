@@ -30,10 +30,10 @@ const RepositoryItem = ({ item }) => {
   });
 
   const statistics = [
-    { statisticsItem: 'Stars', count: item.stargazersCount },
-    { statisticsItem: 'Forks', count: item.forksCount },
-    { statisticsItem: 'Reviews', count: item.reviewCount },
-    { statisticsItem: 'Rating', count: item.ratingAverage }
+    { statisticsItem: 'Stars', count: item.stargazersCount, testId: 'stargazersCount' },
+    { statisticsItem: 'Forks', count: item.forksCount, testId: 'forksCount' },
+    { statisticsItem: 'Reviews', count: item.reviewCount, testId: 'reviewCount' },
+    { statisticsItem: 'Rating', count: item.ratingAverage, testId: 'ratingAverage' }
   ];
   
   return (

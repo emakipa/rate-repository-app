@@ -1,11 +1,10 @@
-import React/*, { useState, useEffect }*/ from 'react';
+import React from 'react';
 import {
   FlatList,
   StyleSheet,
   View
 } from 'react-native';
-import RepositoryItem from './RepositoryItem';
-import useRepositories from '../hooks/useRepositories';
+import RepositoryItem from '../RepositoryItem';
 
 const styles = StyleSheet.create({
   separator: {
@@ -15,8 +14,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryList = () => {
-  const { repositories } = useRepositories();
+const RepositoryList = ({ repositories }) => {
   
   // Get the nodes from the edges array
   const repositoryNodes = repositories

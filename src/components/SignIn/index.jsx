@@ -1,14 +1,8 @@
 import React from 'react';
 import { useHistory } from "react-router-native";
-import { Formik } from 'formik';
 import * as yup from 'yup';
-import SignInForm from './SignInForm';
+import SignInContainer from './SignInContainer';
 import useSignIn from '../../hooks/useSignIn';
-
-const initialValues = {
-  username: '',
-  password: '',
-};
 
 const validationSchema = yup.object().shape({
   username: yup
@@ -39,16 +33,8 @@ const SignIn = () => {
   };
 
   return (
-    <Formik 
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={validationSchema}
-    >
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
-    </Formik>
+    <SignInContainer onSubmit={onSubmit} validationSchema={validationSchema} />
   );
-
-  
 };
 
 export default SignIn;

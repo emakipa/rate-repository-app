@@ -3,7 +3,9 @@ import RepositoryListContainer from './RepositoryListContainer';
 import useRepositories from '../../hooks/useRepositories';
 
 const RepositoryList = () => {
-  const { repositories } = useRepositories();
+  const { repositories, loading } = useRepositories();
+
+  if (loading) return null;
 
   return <RepositoryListContainer repositories={repositories} />; 
 };

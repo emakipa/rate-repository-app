@@ -1,11 +1,14 @@
 import React from 'react';
 import {
   StyleSheet,
+  TouchableWithoutFeedback,
   View
 } from 'react-native';
+import * as Linking from 'expo-linking';
 import RepositoryItemDescription from './RepositoryItemDescription';
 import RepositoryItemImage from './RepositoryItemImage';
 import RepositoryItemStatistics from './RepositoryItemStatistics';
+import Text from "../Text";
 import theme from '../../theme';
 
 const RepositoryItem = ({ item }) => {
@@ -27,6 +30,16 @@ const RepositoryItem = ({ item }) => {
     container3: {
       display: 'flex',
     },
+    button: {
+      margin: 20,
+      borderRadius: 5,
+      backgroundColor: theme.colors.primary,
+      padding: 15,
+    },
+    buttonText: {
+      color: theme.colors.textWhite,
+      alignSelf: 'center',
+    },
   });
 
   const statistics = [
@@ -35,6 +48,10 @@ const RepositoryItem = ({ item }) => {
     { statisticsItem: 'Reviews', count: item.reviewCount, testId: 'reviewCount' },
     { statisticsItem: 'Rating', count: item.ratingAverage, testId: 'ratingAverage' }
   ];
+
+  const openInGitHub = () => {
+    Linking.openURL(item.url);
+  };
   
   return (
     <View style={styles.container}>
@@ -49,6 +66,13 @@ const RepositoryItem = ({ item }) => {
       <View style={styles.container3}>
         <RepositoryItemStatistics statistics={statistics} />  
       </View>
+      {item.url && 
+        <View style={styles.button}>
+          <TouchableWithoutFeedback onPress={openInGitHub}>
+            <Text style={styles.buttonText} fontWeight='bold' >Open in GitHub</Text>
+          </TouchableWithoutFeedback>
+      </View>
+      }
     </View> 
   );
 };

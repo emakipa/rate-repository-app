@@ -24,7 +24,7 @@ const RepositoryItem = ({ repository }) => {
       justifyContent: 'flex-start',
     },
     container2: {
-      display: 'flex',
+      flex: 1,
       paddingTop: 20,
     },
     container3: {

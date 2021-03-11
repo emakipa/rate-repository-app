@@ -4,7 +4,6 @@ import { useApolloClient } from '@apollo/client';
 import { AUTHORIZE } from '../graphql/mutations';
 import AuthStorageContext from '../contexts/AuthStorageContext';
 
-
 const useSignIn = () => {
   const apolloClient = useApolloClient();
   const authStorage = useContext(AuthStorageContext);

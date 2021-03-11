@@ -11,8 +11,9 @@ import {
 import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
-import theme from '../theme';
 import SingleRepository from './SingleRepository';
+import CreateReview from './CreateReview';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,6 +30,9 @@ const Main = () => {
       <Switch>
         <Route path="/" exact>
           <RepositoryList />
+        </Route>
+        <Route path="/createreview">
+          <CreateReview />
         </Route>
         <Route path="/signin">
           <SignIn />

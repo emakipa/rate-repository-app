@@ -13,7 +13,7 @@ export const GET_AUTHORIZED_USER = gql`
 
 // Get repositories with detailed information
 export const GET_REPOSITORIES = gql`
-  query getRepositories {
+  query GetRepositories {
     repositories {
       edges {
         node {
@@ -27,7 +27,7 @@ export const GET_REPOSITORIES = gql`
 
 // Get single repository with detailed information
 export const GET_REPOSITORY = gql`
-  query getRepository($id: ID!) {
+  query GetRepository($id: ID!) {
     repository(id: $id) {
       ...RepositoryDetails
       url

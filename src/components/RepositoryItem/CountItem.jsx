@@ -20,6 +20,7 @@ const CountItem = ({ statisticsItem, count, testId }) => {
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: 'center',
+      margin: 10,
     },
   });
   

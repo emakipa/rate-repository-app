@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost';
-import { REPOSITORY_DETAILS } from './fragments';
+import { REPOSITORY_DETAILS, REVIEW_DETAILS } from './fragments';
 
 // Get authorized user information
 export const GET_AUTHORIZED_USER = gql`
@@ -31,7 +31,15 @@ export const GET_REPOSITORY = gql`
     repository(id: $id) {
       ...RepositoryDetails
       url
+      reviews {
+        edges {
+          node {
+            ...ReviewDetails
+          }
+        }
+      }      
     }
   }
   ${REPOSITORY_DETAILS}
+  ${REVIEW_DETAILS}
 `;

@@ -11,7 +11,7 @@ import RepositoryItemStatistics from './RepositoryItemStatistics';
 import Text from "../Text";
 import theme from '../../theme';
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ repository }) => {
   
   const styles = StyleSheet.create({
     container: {
@@ -43,35 +43,35 @@ const RepositoryItem = ({ item }) => {
   });
 
   const statistics = [
-    { statisticsItem: 'Stars', count: item.stargazersCount, testId: 'stargazersCount' },
-    { statisticsItem: 'Forks', count: item.forksCount, testId: 'forksCount' },
-    { statisticsItem: 'Reviews', count: item.reviewCount, testId: 'reviewCount' },
-    { statisticsItem: 'Rating', count: item.ratingAverage, testId: 'ratingAverage' }
+    { statisticsItem: 'Stars', count: repository.stargazersCount, testId: 'stargazersCount' },
+    { statisticsItem: 'Forks', count: repository.forksCount, testId: 'forksCount' },
+    { statisticsItem: 'Reviews', count: repository.reviewCount, testId: 'reviewCount' },
+    { statisticsItem: 'Rating', count: repository.ratingAverage, testId: 'ratingAverage' }
   ];
 
   const openInGitHub = () => {
-    Linking.openURL(item.url);
+    Linking.openURL(repository.url);
   };
   
   return (
     <View style={styles.container}>
       <View style={styles.container1}>
         <View>
-          <RepositoryItemImage imageSource={item.ownerAvatarUrl} />
+          <RepositoryItemImage imageSource={repository.ownerAvatarUrl} />
         </View>
         <View style={styles.container2}>
-          <RepositoryItemDescription fullName={item.fullName} description={item.description} language={item.language} />
+          <RepositoryItemDescription fullName={repository.fullName} description={repository.description} language={repository.language} />
         </View>
       </View>
       <View style={styles.container3}>
         <RepositoryItemStatistics statistics={statistics} />  
       </View>
-      {item.url && 
-        <View style={styles.button}>
-          <TouchableWithoutFeedback onPress={openInGitHub}>
+      {repository.url && 
+        <TouchableWithoutFeedback onPress={openInGitHub}>
+          <View style={styles.button}>  
             <Text style={styles.buttonText} fontWeight='bold' >Open in GitHub</Text>
-          </TouchableWithoutFeedback>
-      </View>
+          </View>
+        </TouchableWithoutFeedback>
       }
     </View> 
   );

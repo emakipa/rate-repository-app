@@ -28,7 +28,7 @@ const RepositoryList = ({ repositories }) => {
   const renderItem = ({ item }) => (
     <View >
       <TouchableOpacity onPress={() => history.push(`/${item.id}`)} activeOpacity='0.8'>
-        <RepositoryItem item={item} />
+        <RepositoryItem repository={item} />
       </TouchableOpacity>
     </View> 
   );

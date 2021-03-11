@@ -2,4 +2,4 @@
 
 #### osa10 exercises
 
-* rate-repository-app    (exercises setup, 10.1 - 10.19)
+* rate-repository-app    (exercises setup, 10.1 - 10.20)

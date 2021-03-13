@@ -7,8 +7,13 @@ import {
 } from 'react-native';
 import { useHistory } from 'react-router-native';
 import RepositoryItem from '../RepositoryItem';
+import RepositoryListHeader from './RepositoryListHeader';
 
 const styles = StyleSheet.create({
+  repositoryListHeader: {
+    zIndex: 1,
+    elevation: 1,
+  },
   separator: {
     height: 10,
   },
@@ -16,7 +21,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryList = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, sortBy, onPress }) => {
 
   const history = useHistory();
 
@@ -39,8 +44,10 @@ const RepositoryList = ({ repositories }) => {
       ItemSeparatorComponent={ItemSeparator}
       renderItem={renderItem}
       keyExtractor={item => item.id}
+      ListHeaderComponent={() => <RepositoryListHeader sortBy={sortBy} onPress={onPress} />}
+      ListHeaderComponentStyle={styles.repositoryListHeader}
     />
   );
 };
 
-export default RepositoryList;
+export default RepositoryListContainer;

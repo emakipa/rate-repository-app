@@ -17,8 +17,8 @@ const RepositoryInfo = ({ repository }) => {
 
   return (
     <View>
-       <RepositoryItem repository={repository}/>
-       <ItemSeparator />
+      <RepositoryItem repository={repository}/>
+      <ItemSeparator />
     </View> 
   );
 };

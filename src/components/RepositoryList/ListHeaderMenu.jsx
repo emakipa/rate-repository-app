@@ -1,10 +1,9 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import {
   TouchableWithoutFeedback,
   StyleSheet,
   View
 } from 'react-native';
-import { useState } from 'react';
 import {
   Menu,
   Divider,
@@ -17,8 +16,11 @@ import theme from '../../theme';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.backgroundMain,
-    paddingTop: 20,
+    paddingTop: 15,
     paddingBottom: 20,
+  },
+  menu: {
+    marginLeft: 10,
   },
   button: {
     borderRadius: 5,
@@ -26,9 +28,12 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     marginLeft: 20,
-    paddingRight: 20,
+    marginRight: 20,
     alignSelf: 'flex-start',
   },
+  icon: {
+    paddingLeft: 20,
+  }
 });
 
 const ListHeaderMenu = ({ sortBy, onPress }) => {
@@ -41,6 +46,7 @@ const ListHeaderMenu = ({ sortBy, onPress }) => {
     <Provider>
       <View style={styles.container}>
         <Menu
+          style={styles.menu}
           visible={visible}
           onDismiss={closeMenu}
           anchor={
@@ -48,11 +54,13 @@ const ListHeaderMenu = ({ sortBy, onPress }) => {
               <TouchableWithoutFeedback onPress={openMenu}>
                 <View> 
                   <Text style={styles.buttonText}>
-                    {sortBy ? sortBy : "Latest repositories"}                      
-                  {visible ? 
-                    <AntDesign style={{padding: 10}} name="caretup" /> :
-                    <AntDesign style={{padding: 10}} name="caretdown" />
-                  }
+                    {sortBy ? sortBy : "Latest repositories"} 
+                    <View style={styles.icon}>
+                      {visible ? 
+                        <AntDesign name="up" /> :
+                        <AntDesign name="down" />
+                      }
+                    </View> 
                   </Text>
                 </View>    
               </TouchableWithoutFeedback>

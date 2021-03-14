@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDebounce } from 'use-debounce';
 import RepositoryListContainer from './RepositoryListContainer';
 import useRepositories from '../../hooks/useRepositories';
 
 const RepositoryList = () => {
   const [sortBy, setSortBy] = useState();
-  const [sortVariables, setSortVariables] = useState();
+  const [variables, setVariables] = useState();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debounceSearchQuery] = useDebounce(searchQuery, 500);
 
   const { repositories, loading } = useRepositories({
-    sortVariables,
+    variables,
   });
 
-  const onPress = (sortBy, sortVariables) => {
+  const onPress = (sortBy, variables) => {
     setSortBy(sortBy);
-    setSortVariables(sortVariables);
+    setVariables(variables);
   };
+
+  const onChangeSearch = (searchQuery) => {
+    setSearchQuery(searchQuery);
+  };
+
+  useEffect(
+    () => {
+      setVariables({ ...variables, searchKeyword: debounceSearchQuery });
+    },
+    [debounceSearchQuery]
+  );
 
   if (loading) return null;
 
-  return <RepositoryListContainer repositories={repositories} sortBy={sortBy} onPress={onPress} />; 
+  console.log(searchQuery);
+
+  return <RepositoryListContainer repositories={repositories} sortBy={sortBy} onPress={onPress} seachQuery={searchQuery} onChangeSearch={onChangeSearch} />; 
 };
 
 export default RepositoryList;

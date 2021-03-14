@@ -4,6 +4,7 @@ import {
   TouchableWithoutFeedback,
   View
 } from 'react-native';
+import { Link } from "react-router-native";
 import * as Linking from 'expo-linking';
 import RepositoryItemDescription from './RepositoryItemDescription';
 import RepositoryItemImage from './RepositoryItemImage';
@@ -54,26 +55,28 @@ const RepositoryItem = ({ repository }) => {
   };
   
   return (
-    <View style={styles.container}>
-      <View style={styles.container1}>
-        <View>
-          <RepositoryItemImage imageSource={repository.ownerAvatarUrl} />
-        </View>
-        <View style={styles.container2}>
-          <RepositoryItemDescription fullName={repository.fullName} description={repository.description} language={repository.language} />
-        </View>
-      </View>
-      <View style={styles.container3}>
-        <RepositoryItemStatistics statistics={statistics} />  
-      </View>
-      {repository.url && 
-        <TouchableWithoutFeedback onPress={openInGitHub}>
-          <View style={styles.button}>  
-            <Text style={styles.buttonText} fontWeight='bold' >Open in GitHub</Text>
+    <Link to={`/${repository.id}`}>
+      <View style={styles.container}>
+        <View style={styles.container1}>
+          <View>
+            <RepositoryItemImage imageSource={repository.ownerAvatarUrl} />
           </View>
-        </TouchableWithoutFeedback>
-      }
-    </View> 
+          <View style={styles.container2}>
+            <RepositoryItemDescription fullName={repository.fullName} description={repository.description} language={repository.language} />
+          </View>
+        </View>
+        <View style={styles.container3}>
+          <RepositoryItemStatistics statistics={statistics} />  
+        </View>
+        {repository.url && 
+          <TouchableWithoutFeedback onPress={openInGitHub}>
+            <View style={styles.button}>  
+              <Text style={styles.buttonText} fontWeight='bold' >Open in GitHub</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        }
+      </View>
+    </Link>
   );
 };
 

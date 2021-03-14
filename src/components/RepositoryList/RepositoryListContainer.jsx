@@ -21,7 +21,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const renderItem = ({ item }) => (
   <View >
-    <TouchableOpacity onPress={() => history.push(`/${item.id}`)} activeOpacity='0.8'>
+    <TouchableOpacity activeOpacity='0.8'>
       <RepositoryItem repository={item} />
     </TouchableOpacity>
   </View> 

@@ -4,12 +4,12 @@ import {
   TouchableWithoutFeedback,
   View
 } from 'react-native';
-import { Link } from "react-router-native";
+import { Link } from 'react-router-native';
 import * as Linking from 'expo-linking';
 import RepositoryItemDescription from './RepositoryItemDescription';
 import RepositoryItemImage from './RepositoryItemImage';
 import RepositoryItemStatistics from './RepositoryItemStatistics';
-import Text from "../Text";
+import Text from '../Text';
 import theme from '../../theme';
 
 const RepositoryItem = ({ repository }) => {

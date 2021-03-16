@@ -24,5 +24,19 @@ export const REVIEW_DETAILS = gql`
       id
       username
     }
+    repository {
+      id
+      fullName
+      url
+    }
+  }
+`;
+
+export const PAGE_INFO_DETAILS = gql`
+  fragment PageInfoDetails on PageInfo {
+    endCursor
+    startCursor
+    hasNextPage
+    totalCount
   }
 `;

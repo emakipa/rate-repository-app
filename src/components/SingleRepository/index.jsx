@@ -20,11 +20,16 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const SingleRepository = () => {
 
   const { id } = useParams();
-  const { data, loading } = useRepository(id);
+  const { data, loading, fetchMore } = useRepository({ id, first: 7 });
   
   if (loading) return null;
 
   const { repository } = data;
+
+  const onEndReach = () => {
+    fetchMore();
+    console.log('You have reached the end of the list');
+  };
 
   // Get the review nodes from the edges array
   const reviewNodes = data
@@ -38,6 +43,8 @@ const SingleRepository = () => {
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={item => item.id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
     /> 
   );
 };

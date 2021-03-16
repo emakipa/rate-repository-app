@@ -8,6 +8,7 @@ const theme = {
     backgroundAppBar: '#363640',
     backgroundMain: '#e1e4e8',
     backgroundWhite: '#ffffff',
+    backgroundRed: '#ce0000',
     borderInput: '#e1e4e8',
     borderInputError: '#d73a4a',
   },

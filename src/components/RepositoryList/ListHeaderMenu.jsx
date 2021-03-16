@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Dimensions,
   TouchableWithoutFeedback,
   StyleSheet,
   View
@@ -9,22 +10,36 @@ import {
   Divider,
   Provider
 } from 'react-native-paper';
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
 import Text from '../Text';
 import theme from '../../theme';
 
+const width = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.backgroundMain,
+    flexDirection: 'row',
     paddingTop: 15,
     paddingBottom: 20,
+    justifyContent: 'space-between',
+    backgroundColor: theme.colors.backgroundMain,
+  },
+  container1: {
+    display: 'flex',
+    borderRadius: 5,
+    backgroundColor: theme.colors.backgroundMain,
+  },
+  container2: {
+    display: 'flex',
+    backgroundColor: theme.colors.backgroundMain,
   },
   menu: {
+    paddingTop: 150,
     marginLeft: 10,
+    width: width - 40,
   },
   button: {
     borderRadius: 5,
-    backgroundColor: theme.colors.backgroundMain,
   },
   buttonText: {
     marginLeft: 20,
@@ -32,7 +47,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   icon: {
-    paddingLeft: 20,
+    paddingRight: 20,
+    alignSelf: 'flex-end',
   }
 });
 
@@ -44,27 +60,28 @@ const ListHeaderMenu = ({ sortBy, onPress }) => {
 
   return (
     <Provider>
-      <View style={styles.container}>
+      <View >
         <Menu
           style={styles.menu}
           visible={visible}
           onDismiss={closeMenu}
           anchor={
-            <View style={styles.button}>
-              <TouchableWithoutFeedback onPress={openMenu}>
-                <View> 
-                  <Text style={styles.buttonText}>
-                    {sortBy ? sortBy : "Latest repositories"} 
-                    <View style={styles.icon}>
-                      {visible ? 
-                        <AntDesign name="up" /> :
-                        <AntDesign name="down" />
-                      }
-                    </View> 
-                  </Text>
-                </View>    
-              </TouchableWithoutFeedback>
-            </View>
+            <TouchableWithoutFeedback onPress={openMenu}>
+              <View style={styles.container}>
+                <View style={styles.container1}>
+                  <View style={styles.button}> 
+                    <Text style={styles.buttonText}>
+                      {sortBy ? sortBy : "Latest repositories"}  
+                    </Text>
+                  </View>    
+                </View>
+                <View style={styles.container2}>
+                  <View style={styles.icon}>
+                    <AntDesign size={15} color="black" name="caretdown" />  
+                  </View> 
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
           }
         >
           <Menu.Item disabled={true} title='Select an item...' />

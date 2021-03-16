@@ -14,6 +14,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import SingleRepository from './SingleRepository';
 import CreateReview from './CreateReview';
+import UserReviewList from './UserReviewList';
 import theme from '../theme';
 
 const styles = StyleSheet.create({
@@ -29,22 +30,25 @@ const Main = () => {
     <View style={styles.container}>
       <AppBar />
       <Switch>
-        <Route path="/" exact>
+        <Route path='/' exact>
           <RepositoryList />
         </Route>
-        <Route path="/createreview">
+        <Route path='/createreview'>
           <CreateReview />
         </Route>
-        <Route path="/signin">
+        <Route path='/myreviews'>
+          <UserReviewList />
+        </Route>
+        <Route path='/signin'>
           <SignIn />
         </Route>
-        <Route path="/signup">
+        <Route path='/signup'>
           <SignUp />
         </Route>
-        <Route path="/:id">
+        <Route path='/:id'>
           <SingleRepository />
         </Route>
-        <Redirect to="/" />
+        <Redirect to='/' />
       </Switch>
     </View>
   );
